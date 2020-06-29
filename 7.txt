@@ -1,0 +1,26 @@
+#PROGRAM 7
+
+in1=input("enter the prefix value  ")
+f=0
+st=""
+v=[]
+c=[]
+d=32-in1
+for x in range(0,32):
+    if x<d:
+      st+="1"
+    else:
+      st+="0"+""
+     
+     
+v.append(st[0:8:1])
+v.append(st[8:16:1])
+v.append(st[16:24:1])
+v.append(st[24:32:1])
+for x in range(0,4):
+  decimal = 0
+  for digit in v[x]:
+    decimal = decimal*2 + int(digit)
+  c.append(decimal)
+i=":"
+print(str(c[0])+i+str(c[1])+i+str(c[2])+i+str(c[3]))
