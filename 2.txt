@@ -1,3 +1,9 @@
+def f(n):
+  for x in range(n):
+    yield x**3
+
+
+
 OUTPUT:
 0
 1
