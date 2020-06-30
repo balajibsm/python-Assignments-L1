@@ -1,6 +1,6 @@
 #PROGRAM 7
 
-in1=input("enter the prefix value  ")
+in1=int(input("enter the prefix value  "))
 f=0
 st=""
 v=[]
