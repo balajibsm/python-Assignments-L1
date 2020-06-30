@@ -1,19 +1,26 @@
-def countWord(x):
-    x = x.split(' ')
-    return len(x);
-    
-def countChar(x):
-    return sum(len(i) for i in x.split(' '))
-    
-    
-def analyseFile(i,x):
-    f = open('output.txt','a')
-    f.write("Line "+str(i)+": Character count - "+str(countChar(x))+" and word count - "+str(countWord(x))+"\n")
-    f.close()
+#PROGRAM 5
 
-f = open('input.txt','r')
-j=0
-for i in f:
-    j +=1
-    analyseFile(j,i)
+f = open("input.txt", "r")
+number_of_lines = 0
+
+number_of_words = 0
+
+number_of_characters = 0
+
+for line in f:
+
+  line = line.strip("\n")
+
+  words = line.split()
+
+  number_of_lines += 1
+
+  number_of_words += len(words)
+
+  number_of_characters += len(line)
+
+f.close()
+
+f = open("output.txt", "a")
+f.write("lines is {}, total words is {},total characters is {}".format(number_of_lines,number_of_words,number_of_characters)
 f.close()
