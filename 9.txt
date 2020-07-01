@@ -1,19 +1,18 @@
 #PROGRAM 9
 
-import os
-from datetime import datetime as dt
-
-date=[]
-time=[]
-size=[]
-name=[]
-
-for file in os.listdir(os.getcwd()):
-    if os.path.isfile(file):
-        name.append(file)
-        date.append(dt.fromtimestamp(os.stat(file).st_mtime).date())
-        size.append(os.stat(file).st_size)
-        time.append(dt.strptime(str(dt.fromtimestamp(os.stat(file).st_mtime).time())[:5:],'%H:%M').strftime("%I:%M %P"))
-
-for i in range(len(date)):
-    print date[i],"\t", time[i], "\t", size[i], "\t", name[i]
+inputfile = "File content.txt"
+import linecache,tempfile
+  with open(inputfile,'r') as f:
+    count = 0
+    for line in f:
+      k=line.find("    0")
+      count = count+1
+      if k!= -1:
+        print(k)
+        req_line = linecache.getline(inputfile,count)
+        print(reqline)
+        temp=tempfile.TemporaryFile(mode='w+t')
+        temp.writelines(req_line)
+        print(temp.seek(k+8))
+        print("File which is Zero byte in the given directory content is : ", temp.readline())
+        temp.close()
