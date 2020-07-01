@@ -1,0 +1,10 @@
+import xml.etree.ElementTree as ET
+tree = ET.parse("bookstore.txt")
+rt=tree.getroot()
+for x in rt:
+  print(rt.tag)
+  print(rt.attrib)
+  print(x.tag)
+  print(x.attrib)
+  for y in x:
+     print(y.tag , y.text)
